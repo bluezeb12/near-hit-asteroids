@@ -1,6 +1,6 @@
 /*
   Jack Oporto
-  Alula junior dev interview task
+  Junior dev interview task
 */
 
 //config
