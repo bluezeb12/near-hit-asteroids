@@ -27,7 +27,7 @@ axios
         //Add asteroid name to array if miss_distance > 9,000,000
         if (
           res.data.near_earth_objects["2019-01-0" + (i + 1)][j]
-            .close_approach_data[0].miss_distance.kilometers > 9000000
+            .close_approach_data[0].miss_distance.kilometers < 9000000
         ) {
           returned_asteroids.push(
             res.data.near_earth_objects["2019-01-0" + (i + 1)][j].name
