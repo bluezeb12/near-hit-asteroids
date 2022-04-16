@@ -9,9 +9,14 @@ Once copied to your local system, navigate to the folder in your terminal.
    npm install
    ```
 
-Create your own .env file containing your NASA api key as NASA_API_KEY
+Create your own .env file containing your NASA api key like so:
+
+NASA_API_KEY={yourKey}
+
 OR
+
 Replace the url in index.ts with:
+
 https://www.neowsapp.com/rest/v1/feed?start_date=2019-01-01&end_date=2019-01-07&detailed=false&api_key=DEMO_KEY
 
 Finally, run the program with node.
