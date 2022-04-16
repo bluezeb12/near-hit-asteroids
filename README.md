@@ -22,4 +22,8 @@ https://www.neowsapp.com/rest/v1/feed?start_date=2019-01-01&end_date=2019-01-07&
 Finally, run the program with node.
    ```sh
    node .
+   
+   or
+   
+   node index.ts
    ```
