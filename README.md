@@ -9,7 +9,7 @@ Once copied to your local system, navigate to the folder in your terminal.
    npm install
    ```
 
-Create your own .env file containing your NASA api key like so:
+Create your own .env file in the project directory containing your NASA api key like so:
 
 NASA_API_KEY={yourKey}
 
