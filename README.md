@@ -1,7 +1,7 @@
 # Coding exercise
 This node application pulls asteroid data from NASA's api.
 
-It returns the names of asteroids that came within 90,000,000 km of earth between Jan 1, 2019 - Jan 7, 2019
+It returns the names of asteroids that came within 9,000,000 km of earth between Jan 1, 2019 - Jan 7, 2019
 
 # Install
 Once copied to your local system, navigate to the folder in your terminal.
