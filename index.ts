@@ -9,34 +9,27 @@ const axios = require("axios");
 const url =
   "https://www.neowsapp.com/rest/v1/feed?start_date=2019-01-01&end_date=2019-01-07&detailed=false&api_key=" +
   process.env.NASA_API_KEY;
-var total_asteroids = 0;
-var returned_asteroids = [];
 
 //Get Nasa data
 axios
   .get(url)
   .then((res) => {
-    //iterate for 7 days
-    for (let i = 0; i < 7; i++) {
-      // iterate for total count of asteroids on specific date
-      for (
-        let j = 0;
-        j < res.data.near_earth_objects["2019-01-0" + (i + 1)].length;
-        j++
-      ) {
-        //Add asteroid name to array if miss_distance < 9,000,000
-        if (
-          res.data.near_earth_objects["2019-01-0" + (i + 1)][j]
-            .close_approach_data[0].miss_distance.kilometers < 9000000
-        ) {
-          returned_asteroids.push(
-            res.data.near_earth_objects["2019-01-0" + (i + 1)][j].name
-          );
-        }
-      }
-    }
+    var returned_asteroids = [];
 
-    //print asteroid names
+    //Loops through each day
+    //Contents of near_earth_objects is an object so we must get the keys to loop through
+    Object.keys(res.data.near_earth_objects).forEach((date, i) => {
+      //Loops through each asteroid in the day
+      res.data.near_earth_objects["2019-01-0" + (i + 1)].forEach((asteroid) => {
+        //Checks if the asteroid was within 9m km
+        if (
+          asteroid.close_approach_data[0].miss_distance.kilometers < 9000000
+        ) {
+          returned_asteroids.push(asteroid.name);
+        }
+      });
+    });
+    // //print asteroid names
     console.log(returned_asteroids);
   })
   .catch((error) => {
