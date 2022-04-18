@@ -18,17 +18,20 @@ axios
 
     //Loops through each day
     //Contents of near_earth_objects is an object so we must get the keys to loop through
-    Object.keys(res.data.near_earth_objects).forEach((date, i) => {
-      //Loops through each asteroid in the day
-      res.data.near_earth_objects["2019-01-0" + (i + 1)].forEach((asteroid) => {
-        //Checks if the asteroid was within 9m km
-        if (
-          asteroid.close_approach_data[0].miss_distance.kilometers < 9000000
-        ) {
-          returned_asteroids.push(asteroid.name);
-        }
+    Object.keys(res.data.near_earth_objects)
+      //We reverse the order of the keys so we can loop through them in chronological order
+      .reverse()
+      .forEach((date) => {
+        //Loops through each asteroid in the day
+        res.data.near_earth_objects[date].forEach((asteroid) => {
+          //Checks if the asteroid was within 9m km
+          if (
+            asteroid.close_approach_data[0].miss_distance.kilometers < 9000000
+          ) {
+            returned_asteroids.push(asteroid.name);
+          }
+        });
       });
-    });
     // //print asteroid names
     console.log(returned_asteroids);
   })
