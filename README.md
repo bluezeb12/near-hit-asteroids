@@ -11,7 +11,7 @@ Once copied to your local system, navigate to the folder in your terminal.
 
 Create your own .env file in the project directory containing your NASA api key like so:
 ```sh
-NASA_API_KEY={yourKey}
+PORT={API port}
 ```
 
 OR
